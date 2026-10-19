@@ -18,15 +18,20 @@ public class Facultad {
 
     /** Agrega un plan ya existente (agregación). */
     public void agregarPlan(PlanEstudios plan) {
-        // TODO: implementar
+        if (plan != null && !planes.contains(plan)) {
+            planes.add(plan);
+        }
     }
 
     /**
      * Total de cursos de todos los planes de la facultad.
      */
     public int totalCursos() {
-        // TODO: implementar
-        return 0;
+        int total = 0;
+        for (PlanEstudios plan : planes) {
+            total += plan.getCursos().size();
+        }
+        return total;
     }
 
     public String getNombre() { return nombre; }
